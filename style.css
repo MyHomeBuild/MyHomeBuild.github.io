@@ -1,26 +1,23 @@
 :root {
   --bg: #f9f9f9;
   --text: #222;
-  --accent: #3b82f6;
   --muted: #666;
+  --accent: #2563eb;
+  --line: #ddd;
 }
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
 }
 
 header {
-  max-width: 720px;
+  max-width: 800px;
   margin: 3rem auto 2rem;
   padding: 0 1rem;
-}
-
-h1 {
-  margin-bottom: 0.2rem;
 }
 
 .subtitle {
@@ -28,31 +25,54 @@ h1 {
 }
 
 main {
-  max-width: 720px;
+  max-width: 800px;
   margin: auto;
   padding: 0 1rem;
 }
 
-.post-preview {
+.timeline {
+  position: relative;
+  margin-top: 2rem;
+  padding-left: 2rem;
+  border-left: 3px solid var(--line);
+}
+
+.milestone {
+  position: relative;
   margin-bottom: 2.5rem;
 }
 
-.post-preview h2 {
-  margin-bottom: 0.3rem;
+.milestone::before {
+  content: "";
+  position: absolute;
+  left: -1.15rem;
+  top: 0.4rem;
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  border-radius: 50%;
 }
 
-.post-preview a {
-  text-decoration: none;
-  color: var(--accent);
-}
-
-time {
+.date {
   font-size: 0.9rem;
   color: var(--muted);
 }
 
+.milestone h3 {
+  margin: 0.2rem 0;
+}
+
+.milestone a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.milestone a:hover {
+  text-decoration: underline;
+}
+
 footer {
-  max-width: 720px;
+  max-width: 800px;
   margin: 4rem auto 2rem;
   padding: 0 1rem;
   color: var(--muted);
