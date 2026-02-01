@@ -2,61 +2,112 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Our House Build Journey</title>
+  <title>Our First House Build Story in Western Australia</title>
+  <meta name="description" content="A real-life house build journey in Western Australia — from borrowing capacity and land selection to building and moving in." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header>
-    <h1>Our House Build Journey</h1>
-    <p class="subtitle">From empty land to home 🏡</p>
-  </header>
 
-  <main>
-    <section class="timeline">
-      <h2>Milestones</h2>
+<header class="site-header">
+  <h1>Our First House Build Story</h1>
+  <p class="subtitle">
+  A real-life journey of building our first home in Western Australia
+</p>
 
-      <div class="milestone">
-        <span class="date">10 Mar 2025</span>
-        <div class="content">
-          <h3>
-            <a href="posts/2025-03-10-land-purchased.html">
-              Land Purchased
-            </a>
-          </h3>
-          <p>Signed the contract and officially started the journey.</p>
-        </div>
-      </div>
+</header>
+<div class="timeline-controls">
+  <span>Timeline:</span>
+  <button class="order-btn active" data-order="desc">Newest</button>
+  <button class="order-btn" data-order="asc">Oldest</button>
+</div>
 
-      <div class="milestone">
-        <span class="date">1 Jun 2025</span>
-        <div class="content">
-          <h3>
-            <a href="posts/2025-06-01-design-finalised.html">
-              Design Finalised
-            </a>
-          </h3>
-          <p>Floor plans locked in after many revisions.</p>
-        </div>
-      </div>
 
-      <div class="milestone">
-        <span class="date">18 Sep 2025</span>
-        <div class="content">
-          <h3>
-            <a href="posts/2025-09-18-construction-start.html">
-              Construction Started
-            </a>
-          </h3>
-          <p>Site works began and the slab prep kicked off.</p>
-        </div>
-      </div>
+<section class="timeline">
 
-    </section>
-  </main>
+  <div class="timeline-item left" onclick="location.href='posts/2025-08-04-how-much-we-can-borrow.html'">
+    <div class="card">
+      <div class="date">04 Aug 2025</div>
+      <h3>How Much We Can Borrow</h3>
+      <p>
+        We met with a mortgage broker to understand our borrowing capacity,
+        loan structure options, and the costs involved in building.
+      </p>
+    </div>
+  </div>
+<div class="timeline-item right" onclick="location.href='posts/2025-08-09-shortlisting-builders.html'">
+  <div class="card">
+    <div class="date">09 Aug 2025</div>
+    <h3>Shortlisting Builders</h3>
+    <p>
+      Researching builders, comparing inclusions, timelines, and visiting
+      display homes to find the right fit for our first build.
+    </p>
+  </div>
+</div>
 
-  <footer>
-    <p>© 2026 Our Build</p>
-  </footer>
+  <div class="timeline-item right" onclick="location.href='posts/2025-08-10-looking-for-land.html'">
+    <div class="card">
+      <div class="date">10 Aug 2025</div>
+      <h3>Looking for Land</h3>
+      <p>
+        We explored developer websites, land marketplaces, and builder
+        recommendations before narrowing down our preferred estate.
+      </p>
+    </div>
+  </div>
+
+  <div class="timeline-item left" onclick="location.href='posts/2025-08-17-securing-the-land.html'">
+    <div class="card">
+      <div class="date">17 Aug 2025</div>
+      <h3>Securing the Land</h3>
+      <p>
+        After sending our Letter of Eligibility and ID documents, we signed
+        the contract via DocuSign and paid the deposit once accepted.
+      </p>
+    </div>
+  </div>
+
+</section>
+<script>
+  const buttons = document.querySelectorAll(".order-btn");
+  const timeline = document.querySelector(".timeline");
+
+  const items = Array.from(timeline.children);
+  const savedOrder = localStorage.getItem("timelineOrder") || "desc";
+
+  function applyOrder(order) {
+    timeline.classList.add("reordering");
+
+    setTimeout(() => {
+      timeline.innerHTML = "";
+
+      const ordered = [...items];
+      if (order === "desc") ordered.reverse();
+
+      ordered.forEach(item => timeline.appendChild(item));
+
+      buttons.forEach(btn =>
+        btn.classList.toggle("active", btn.dataset.order === order)
+      );
+
+      timeline.classList.remove("reordering");
+    }, 200);
+
+    localStorage.setItem("timelineOrder", order);
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      applyOrder(btn.dataset.order);
+    });
+  });
+
+  // Apply saved/default order on load
+  applyOrder(savedOrder);
+</script>
+
+
 </body>
 </html>
