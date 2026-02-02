@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,18 +17,55 @@
   <p class="subtitle">
   A real-life journey of building our first home in Western Australia
 </p>
-
-</header>
 <div class="timeline-controls">
   <span>Timeline:</span>
   <button class="order-btn active" data-order="desc">Newest</button>
   <button class="order-btn" data-order="asc">Oldest</button>
+
+</header>
+
+<main class="layout">
+  <!-- LEFT: ABOUT -->
+  <aside class="sidebar">
+    <section class="about-me">
+      <h2>About Me</h2>
+
+      <p>
+        I’m a first home builder sharing our building journey in
+        Western Australia.
+      </p>
+
+      <p>
+        This site documents our experience from planning through to
+        construction, with the hope it helps others considering building in WA.
+      </p>
+
+      <p>
+        Want to chat or ask questions?
+        <br>
+        <a href="mailto:my.au.project@gmail.com">
+          my.au.project@gmail.com
+        </a>
+      </p>
+
+      <div class="callout">
+        <strong>Builder referral offer</strong><br>
+        Our builder offers a <strong>$1,000 cash on slab-down</strong> for referrals.
+        If you're interested, we can split it — <strong>$500 each</strong>.
+      </div>
+
+      <p>Talk to you soon! 👋</p>
+    </section>
+  </aside>
+
+  <!-- RIGHT: MAIN CONTENT -->
+  
 </div>
 
 
 <section class="timeline">
 
-  <div class="timeline-item left" onclick="location.href='posts/2025-08-04-how-much-we-can-borrow.html'">
+  <div class="timeline-item" onclick="location.href='posts/2025-08-04-how-much-we-can-borrow.html'">
     <div class="card">
       <div class="date">04 Aug 2025</div>
       <h3>How Much We Can Borrow</h3>
@@ -70,6 +109,8 @@
   </div>
 
 </section>
+</main>
+
 <script>
   const buttons = document.querySelectorAll(".order-btn");
   const timeline = document.querySelector(".timeline");
